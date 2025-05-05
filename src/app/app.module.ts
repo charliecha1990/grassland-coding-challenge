@@ -31,7 +31,7 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     RouterModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
   ],
   declarations: [
     AppComponent,

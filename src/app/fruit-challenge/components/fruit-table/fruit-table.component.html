@@ -6,18 +6,35 @@
                     <mat-card-title>Grassland Ventures Fruit Database:</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                  <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$ | async">
-                    <!-- Dynamically render columns -->                   
-                    <ng-container *ngFor="let col of viewModel.columns" [matColumnDef]="col.name">
-                      <th mat-header-cell *matHeaderCellDef> {{ col.label }} </th>
-                      <td mat-cell *matCellDef="let fruit"> {{ col.valueGetter(fruit) }} </td>
-                    </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="viewModel.columnsToDisplay"></tr>
-                    <tr mat-row *matRowDef="let myRowData; columns: viewModel.columnsToDisplay"></tr>
-                  </table>
-                  <div class="loading-spinner-container" *ngIf="!!(viewModel.loadingFruit$|async)">
-                    <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
-                  </div>
+                    <div class="d-flex mb-3 align-items-center gap-3">
+                        <mat-form-field appearance="outline" class="flex-grow-1">
+                          <mat-label>Filter by name, genus, family, or order</mat-label>
+                          <input matInput type="text" (input)="viewModel.setFilterText($event.target.value)" />
+                        </mat-form-field>
+                      
+                        <mat-form-field appearance="outline">
+                          <mat-label>Sort By</mat-label>
+                          <mat-select (selectionChange)="viewModel.setSortOption($event.value)">
+                            <mat-option value="Name Ascending">Name Ascending</mat-option>
+                            <mat-option value="Name Descending">Name Descending</mat-option>
+                            <mat-option value="Carbohydrates Ascending">Carbohydrates Ascending</mat-option>
+                            <mat-option value="Carbohydrates Descending">Carbohydrates Descending</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                    <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$ | async">
+                        <!-- Dynamically render columns -->                   
+                        <ng-container *ngFor="let col of viewModel.columns" [matColumnDef]="col.name">
+                          <th mat-header-cell *matHeaderCellDef> {{ col.label }} </th>
+                          <td mat-cell *matCellDef="let fruit"> {{ col.valueGetter(fruit) }} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="viewModel.columnsToDisplay"></tr>
+                        <tr mat-row *matRowDef="let myRowData; columns: viewModel.columnsToDisplay"></tr>
+                    </table>
+                    <div class="loading-spinner-container" *ngIf="!!(viewModel.loadingFruit$|async)">
+                        <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </div>
