@@ -8,4 +8,3 @@ export interface Fruit {
   order: string;
   nutritions: NutritionInfo;
 }
-

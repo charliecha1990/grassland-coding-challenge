@@ -1,0 +1,40 @@
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 8px; // 8px spacing around component content
+  font-size: 16px;
+
+  &.from-anna {
+    flex-direction: row-reverse;
+
+    .bubble {
+      background-color: #4267b2;
+      color: black;
+      text-align: justify; // Justify text for better readability
+    }
+  }
+
+  &.from-others {
+    flex-direction: row;
+
+    .bubble {
+      background-color: #8d8e91;
+      color: black;
+      text-align: justify;
+      text-wrap: break-word; // Ensure long text wraps within the bubble
+    }
+  }
+
+  .profile-pic {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 8px; // 8px spacing between profile picture and text
+  }
+
+  .bubble {
+    padding: 4px 8px; // 4px padding around text content
+    border-radius: 8px;
+    max-width: 100%;
+  }
+}

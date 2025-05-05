@@ -1,4 +1,4 @@
-import {Message} from './message';
+import {Message, MessageType, MessageTypes} from './message';
 
 export class TextMessage extends Message {
 
@@ -10,4 +10,13 @@ export class TextMessage extends Message {
     super(from, profilePictureUrl, content);
   }
 
+  public override get messageType(): MessageType {
+    return MessageTypes.TEXT;
+  }
+}
+
+export interface ITextMessageData { 
+  from: string;
+  profilePictureUrl: string;
+  content: string;
 }

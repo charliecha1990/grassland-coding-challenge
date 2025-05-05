@@ -1,0 +1,80 @@
+.dialog-content {
+  padding: 1rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.info-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 16px;
+
+  .icon {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  // Specific colors for each icon type
+  mat-icon.icon {
+    &.fingerprint {
+      color: #5e35b1; // Deep Purple
+    }
+    &.eco {
+      color: #43a047; // Green - nature
+    }
+    &.family_restroom {
+      color: #546e7a; // Blue Gray - neutral professional
+    }
+    &.category {
+      color: #fb8c00; // Amber - distinctive
+    }
+  }
+}
+
+.nutrition-card {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  background-color: #f3f6fc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-top: 0;
+    color: #3f51b5;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+
+    li {
+      padding: 0.3rem 0;
+      font-size: 15px;
+    }
+  }
+}
+
+// Animation for fading in content
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -9,3 +9,27 @@
   width: 100%;
   justify-content: center;
 }
+
+/* Alternating row background */
+.row-even {
+  background-color: #FFFFFF;
+}
+
+.row-odd {
+  background-color: #FAFAFA;
+}
+
+/* Right-align the last column (e.g. sugar) */
+.text-right {
+  text-align: right;
+}
+
+/* Bold calories ≤ 50 */
+.bold-calories {
+  font-weight: bold;
+}
+
+/* Highlight full row if calories ≤ 50 and sugar ≥ 8 */
+.highlight-row {
+  background-color: #31BF5D !important;
+}
