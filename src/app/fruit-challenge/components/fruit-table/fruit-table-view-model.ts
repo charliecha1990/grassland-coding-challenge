@@ -8,6 +8,7 @@ export class FruitTableViewModel {
   private allFruits = new BehaviorSubject<Fruit[]>([]);
   private filterText = new BehaviorSubject<string>('');
   private sortOption = new BehaviorSubject<string>('Name Ascending');
+  columnToAlignRight = 'sugar'; // example of a column that should be aligned to the right
 
   fruitData$ = combineLatest([
     this.allFruits,
