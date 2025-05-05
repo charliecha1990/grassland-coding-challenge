@@ -1,5 +1,9 @@
 <div class="container">
   <div class="fake-phone">
-    <!-- TODO - your code here -->
+    <div class="messages-list">
+      <div *ngFor="let message of messages" class="message-item">
+        {{ message | json }}
+      </div>
+    </div>
   </div>
 </div>

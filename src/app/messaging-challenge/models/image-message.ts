@@ -11,3 +11,9 @@ export class ImageMessage extends Message {
   }
 
 }
+
+export interface IImageMessageData { 
+  from: string;
+  profilePictureUrl: string;
+  content: string;
+}
