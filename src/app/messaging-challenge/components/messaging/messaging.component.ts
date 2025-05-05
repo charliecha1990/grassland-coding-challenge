@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagingService } from '../../services/messaging.service';
 import { ITextMessageData, TextMessage } from '../../models/text-message';
-import { IImageMessageData } from '../../models/image-message';
+import { IImageMessageData, ImageMessage } from '../../models/image-message';
 
 @Component({
   selector: 'app-messaging',
@@ -21,5 +21,9 @@ export class MessagingComponent implements OnInit {
 
   isTextMessage(message: any): message is TextMessage {
     return message instanceof TextMessage;
+  }
+
+  isImageMessage(msg: any): msg is ImageMessage {
+    return msg instanceof ImageMessage;
   }
 }
