@@ -17,6 +17,8 @@ import {MessagingComponent} from './messaging-challenge/components/messaging/mes
 import { MatSelectModule } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FruitDetailDialogComponent } from './fruit-challenge/components/fruit-dialog/fruit-detail-dialog.component';
 
 const routes: Routes = [
   {
@@ -53,10 +55,12 @@ const routes: Routes = [
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
   ],
   exports: [RouterModule],
   declarations: [
     FruitTableComponent,
+    FruitDetailDialogComponent
   ]
 })
 export class AppRoutingModule {

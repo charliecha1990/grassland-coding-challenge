@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>
+  {{ data.name }}
+</h2>
+
+<mat-dialog-content class="dialog-content">
+  <div class="details-container">
+    <section class="info-section">
+      <mat-icon class="icon fingerprint">fingerprint</mat-icon>
+      <span><strong>ID:</strong> {{ data.id }}</span>
+    </section>
+    <section class="info-section">
+      <mat-icon class="icon eco">eco</mat-icon>
+      <span><strong>Genus:</strong> {{ data.genus }}</span>
+    </section>
+    <section class="info-section">
+      <mat-icon class="icon family_restroom">family_restroom</mat-icon>
+      <span><strong>Family:</strong> {{ data.family }}</span>
+    </section>
+    <section class="info-section">
+      <mat-icon class="icon category">category</mat-icon>
+      <span><strong>Order:</strong> {{ data.order }}</span>
+    </section>
+
+    <div class="nutrition-card">
+      <h3>Nutrition Facts</h3>
+      <ul>
+        <li><strong>Carbohydrates:</strong> {{ data.nutritions.carbohydrates }} g</li>
+        <li><strong>Protein:</strong> {{ data.nutritions.protein }} g</li>
+        <li><strong>Fat:</strong> {{ data.nutritions.fat }} g</li>
+        <li><strong>Calories:</strong> {{ data.nutritions.calories }} kcal</li>
+        <li><strong>Sugar:</strong> {{ data.nutritions.sugar }} g</li>
+      </ul>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="primary" mat-dialog-close>
+    Close
+  </button>
+</mat-dialog-actions>

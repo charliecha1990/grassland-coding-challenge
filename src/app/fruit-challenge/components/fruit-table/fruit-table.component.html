@@ -32,12 +32,13 @@
                         <tr mat-header-row *matHeaderRowDef="viewModel.columnsToDisplay"></tr>
                         <tr
                           mat-row
-                          *matRowDef="let row; let i = index; columns: viewModel.columnsToDisplay"
                           [ngClass]="{
-                          'highlight-row': row.nutritions.calories <= 50 && row.nutritions.sugar >= 8,
-                          'row-even': i % 2 === 0,
-                          'row-odd': i % 2 !== 0,
-                        }"
+                            'highlight-row': row.nutritions.calories <= 50 && row.nutritions.sugar >= 8,
+                            'row-even': i % 2 === 0,
+                            'row-odd': i % 2 !== 0,
+                          }"
+                          *matRowDef="let row; let i = index; columns: viewModel.columnsToDisplay"
+                          (click)="openFruitDialog(row)"
                       ></tr>                     
                     </table>
                     <div class="loading-spinner-container" *ngIf="!!(viewModel.loadingFruit$|async)">
