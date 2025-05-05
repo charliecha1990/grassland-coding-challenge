@@ -11,7 +11,7 @@
                           <mat-label>Filter by name, genus, family, or order</mat-label>
                           <input matInput type="text" (input)="viewModel.setFilterText($event.target.value)" />
                         </mat-form-field>
-                      
+
                         <mat-form-field appearance="outline">
                           <mat-label>Sort By</mat-label>
                           <mat-select (selectionChange)="viewModel.setSortOption($event.value)">
@@ -24,11 +24,27 @@
                       </div>
 
                     <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$ | async">
-                        <!-- Dynamically render columns -->                   
-                        <ng-container *ngFor="let col of viewModel.columns" [matColumnDef]="col.name">
-                          <th mat-header-cell *matHeaderCellDef> {{ col.label }} </th>
-                          <td mat-cell *matCellDef="let fruit"> {{ col.valueGetter(fruit) }} </td>
+                        <!-- Dynamically render columns -->
+                        <ng-container *ngFor="let i = index; let col of viewModel.columns" [matColumnDef]="col.name">
+                          <th 
+                            mat-header-cell 
+                            *matHeaderCellDef
+                            [ngClass]="{
+                                'text-right': col.name === viewModel.columnToAlignRight,
+                            }"
+                        > {{ col.label }} </th>
+                          <td
+                            mat-cell
+                            *matCellDef="let fruit"
+                            [ngClass]="{
+                                'bold-calories': col.name === 'calories' && fruit.nutritions.calories <= 50,
+                                'text-right': col.name === viewModel.columnToAlignRight,
+                            }"
+                        >
+                          {{ col.valueGetter(fruit) }}
+                        </td>                     
                         </ng-container>
+                        
                         <tr mat-header-row *matHeaderRowDef="viewModel.columnsToDisplay"></tr>
                         <tr
                           mat-row

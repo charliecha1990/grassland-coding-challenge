@@ -15,7 +15,11 @@ export class MessagingComponent implements OnInit {
 
   ngOnInit(): void {
     this.messagingService.messages$.subscribe((msgs) => {
-      this.messages = msgs.filter((msg) => msg instanceof TextMessage);
+      this.messages = [...msgs];
     });
+  }
+
+  isTextMessage(message: any): message is TextMessage {
+    return message instanceof TextMessage;
   }
 }
