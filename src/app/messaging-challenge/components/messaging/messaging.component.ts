@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagingService } from '../../services/messaging.service';
-import { ITextMessageData } from '../../models/text-message';
+import { ITextMessageData, TextMessage } from '../../models/text-message';
 import { IImageMessageData } from '../../models/image-message';
 
 @Component({
@@ -15,7 +15,7 @@ export class MessagingComponent implements OnInit {
 
   ngOnInit(): void {
     this.messagingService.messages$.subscribe((msgs) => {
-      this.messages = msgs;
+      this.messages = msgs.filter((msg) => msg instanceof TextMessage);
     });
   }
 }
